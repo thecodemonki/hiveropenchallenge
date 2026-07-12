@@ -1,67 +1,96 @@
 # TrustDraft
 
-Suggested-reply system for a shared support inbox. Given an incoming email, it retrieves similar past tickets, drafts a reply with Claude grounded in those examples and a brand-voice guide, then scores the draft against the real reference reply with an LLM judge (plus a secondary lexical overlap signal).
+Shared-inbox suggested-reply prototype: retrieve similar past tickets, draft a reply with Claude, then score that draft against the held-out reference reply.
 
-## 1. Dataset
+Pipeline: `generate_dataset` → `generate_reply` (TF-IDF retrieval + few-shot) → `evaluate` (LLM judge + lexical secondary + mismatched-reference check). `app.py` is a Streamlit dashboard over the same outputs.
 
-The corpus is a synthetic shared-inbox archive of `(incoming_email, reply_that_was_sent)` pairs. Each pair includes `customer_name`, `subject`, `body`, `reply`, `category`, `customer_tier` (`standard` / `pro` / `enterprise`), and `sentiment`.
+## Dataset
 
-Categories mirror common support work:
+Synthetic `(incoming_email, reply_that_was_sent)` pairs meant to look like a support archive, not a generic chat corpus. Fields: `customer_name`, `subject`, `body`, `reply`, `category`, `customer_tier` (`standard` / `pro` / `enterprise`), `sentiment`.
 
-- `billing_refund`
-- `bug_report`
-- `cancellation_churn`
-- `feature_request`
-- `sales_inquiry`
+Categories (balanced across generation):
 
-That mix is representative of a real helpdesk queue: money issues, product defects, churn risk, product asks, and inbound sales — with tier and sentiment variation so retrieval and replies are not one-dimensional. Live generation uses Claude (`claude-sonnet-4-5`); `--dry-run` swaps in five hardcoded fixtures so the rest of the pipeline can be tested without API spend. Pairs are shuffled (seeded) into `data/train.json` (retrieval corpus), `data/test.json` (held out), and `data/dataset.json` (all pairs).
+| Category | Typical ticket |
+|----------|----------------|
+| `billing_refund` | Charges, invoices, refunds |
+| `bug_report` | Product failures with repro detail |
+| `cancellation_churn` | Cancel / downgrade requests |
+| `feature_request` | Product asks / roadmap questions |
+| `sales_inquiry` | Pricing, seats, demos |
 
-## 2. Why RAG / few-shot instead of fine-tuning
+That mix is representative of a real queue: money, defects, churn, product, and sales, with tier and sentiment so retrieval is not dominated by one template. Live generation uses Claude (`claude-sonnet-4-5`). `--dry-run` uses five fixtures and ignores `--n` for content (still useful for wiring tests). Seeded shuffle → `data/train.json` (retrieval), `data/test.json` (held out), `data/dataset.json` (all).
 
-TrustDraft retrieves the top-*k* train examples by TF-IDF cosine similarity over **incoming** subject+body only, then passes those past email/reply pairs into the prompt as few-shot context (plus `data/brand_voice.md`).
+**Limitation:** synthetic data understates real messiness (escalations, partial context, policy edge cases). It is enough to exercise retrieval, prompting, and the judge loop—not a claim of production coverage.
 
-**Why this over fine-tuning**
+## Generation approach
 
-- Works with a small archive; no training loop or GPU job.
-- Updating behavior means editing brand voice or adding tickets — not re-training.
-- Each draft stays inspectable: you can see which past replies were retrieved.
+For each test email:
 
-**Trade-off**
+1. Build TF-IDF over train **incoming** text only (`subject` + `body`), not replies.
+2. Take top-*k* by cosine similarity (`src/retrieval.py`).
+3. Prompt Claude with brand voice (`data/brand_voice.md`), the retrieved email/reply pairs, and the new incoming email (`src/generate_reply.py`). One API call per test email.
 
-- Quality depends on retrieval and prompt context limits; rare ticket types may not find good neighbors.
-- Fine-tuning could absorb house style more tightly at scale, but costs more to train, evaluate, and refresh when policies change. For a support inbox that changes weekly, retrieval + prompting is the cheaper control surface.
+The model is instructed to stay warm, direct, and action-oriented, and not to invent policies unsupported by the email or examples.
 
-## 3. Accuracy is not exact match
+### Why retrieval + few-shot instead of fine-tuning
 
-A good agent reply can use different words than the historical reference and still be correct. Exact string match (or treating ROUGE as the headline metric) would punish valid paraphrases.
+| | Retrieval + few-shot | Fine-tuning |
+|--|----------------------|-------------|
+| Data need | Small labeled archive | Larger, cleaner training set |
+| Update path | Add tickets / edit brand voice | Retrain / redeploy |
+| Inspectability | Retrieved neighbors are visible | Behavior is baked into weights |
+| Cost | Inference (+ retrieval) | Train + eval + ongoing refresh |
 
-Primary metric: an **LLM judge** scores each generated reply against that ticket’s **real** reference reply on four 1–5 dimensions:
+**Trade-off:** quality tracks retrieval. Thin categories or odd wording get weak neighbors; context window caps how many examples you can show. Fine-tuning can lock in house style more tightly at scale, but is slower to change when refund rules or tone guidelines shift. For an inbox that changes often, prompting over retrieved tickets is the lower-ops control surface.
 
-| Dimension | What it measures |
-|-----------|------------------|
-| `intent_coverage` | Did the reply address what the customer needed? |
-| `tone_fidelity` | Warm, direct, action-oriented in the same spirit as the reference? |
-| `correctness` | Avoid inventing policies/facts the reference wouldn’t support? |
-| `conciseness` | Tight without dropping needed next steps? |
+## Evaluation
 
-Those four scores sum to a **0–100 `accuracy_score`** (`sum / 20 × 100`).
+### Why not exact match
 
-**ROUGE-L** (token LCS F1, implemented in-repo with no extra dependency) is logged only as a coarse lexical secondary signal. It is **not** the accuracy number.
+Agent replies that are correct often paraphrase the reference. Exact string match (and treating ROUGE as the headline number) rewards copying and punishes valid wording. Exact match is the wrong primary metric here.
 
-## 4. Validation / corruption test
+### LLM judge (primary)
 
-After scoring every generated reply against the correct reference, the evaluator **re-scores** each reply against a **wrong** reference: test IDs are deranged so no ID maps to itself (with a single test item, a canned unrelated reply is used instead).
+Each generated reply is scored against **that ticket’s real reference** on four 1–5 dimensions:
 
-Compare:
+| Dimension | Measures |
+|-----------|----------|
+| `intent_coverage` | Addresses the customer’s ask |
+| `tone_fidelity` | Warm / direct / action-oriented like the reference |
+| `correctness` | Does not invent unsupported policy or facts |
+| `conciseness` | Tight without dropping needed next steps |
 
-- average `accuracy_score` on **correct** pairs
-- average `accuracy_score` on **mismatched** pairs
+`accuracy_score` = sum of the four / 20 × 100 (range 0–100).
 
-A **large positive gap** means the judge tracks reply–reference fit rather than emitting a plausible constant. A near-zero gap is a warning that the metric may not discriminate.
+**Limitation:** the judge is itself an LLM. It can be noisy or biased; the corruption test below is there to catch “always scores ~high” failure modes.
 
-**Dry-run note:** `--dry-run` uses a constant placeholder judge score, so the validation gap is **~0 by construction**. That is expected and documented in `data/validation.json` — it does **not** prove the metric works. Re-run without `--dry-run` (and with enough test emails for a real derangement) to validate discrimination.
+### Lexical overlap (secondary only)
 
-## 5. How to run
+ROUGE-L (token LCS F1, implemented in-repo) is logged as a coarse overlap signal. It is **not** the accuracy number.
+
+### Validation / corruption test
+
+After correct-reference scoring, every generated reply is re-scored against a **wrong** reference: test IDs are deranged so no ID maps to itself (≥2 test items). With a single test item, a canned unrelated reply is used instead.
+
+Report:
+
+- avg `accuracy_score` on correct pairs  
+- avg `accuracy_score` on mismatched pairs  
+- **gap** = correct − mismatched  
+
+A large positive gap means the judge tracks reply–reference fit. A near-zero gap means it may be emitting a plausible constant regardless of input—do not trust the accuracy number until that gap is real.
+
+## Dry-run limitations
+
+`--dry-run` skips Anthropic calls:
+
+- dataset → 5 fixtures  
+- replies → deterministic placeholders  
+- judge → constant dimension scores  
+
+So validation gap is **~0 by construction**. That confirms the pipeline wiring; it does **not** validate the metric or reply quality. Checked-in `data/*.json` may be from dry-run—treat numbers there as fixtures unless you re-ran without `--dry-run`.
+
+## How to run
 
 ```bash
 python3 -m venv .venv
@@ -70,45 +99,37 @@ pip install -r requirements.txt
 cp .env.example .env   # set ANTHROPIC_API_KEY for live runs
 ```
 
-**Dry-run (no API calls)** — fixtures + placeholder replies/scores:
+Dry-run (no API):
 
 ```bash
 python src/pipeline.py --n 40 --dry-run
 streamlit run app.py
 ```
 
-**Live run** (uses Anthropic; costs tokens):
+Live (uses API credits):
 
 ```bash
 python src/pipeline.py --n 40
 streamlit run app.py
 ```
 
-Or step by step:
+Steps individually: `src/generate_dataset.py`, `src/generate_reply.py` (`--k`), `src/evaluate.py`.
 
-```bash
-python src/generate_dataset.py --n 40          # or --dry-run
-python src/generate_reply.py                  # or --dry-run --k 3
-python src/evaluate.py                        # or --dry-run
-```
+Outputs: `data/train.json`, `test.json`, `dataset.json`, `generated.json`, `evaluations.json`, `validation.json`.
 
-Outputs land in `data/`: `train.json`, `test.json`, `dataset.json`, `generated.json`, `evaluations.json`, `validation.json`.
+## AI tool usage
 
-Dashboard (`app.py`): sidebar controls dataset size and dry-run, runs `pipeline.py`, then shows summary metrics, charts, validation interpretation, a filterable table, and a per-ticket scorecard.
+Built in Cursor with AI-assisted implementation of the modules above from staged requirements. Method choices (TF-IDF few-shot vs fine-tune, LLM judge + corruption check, ROUGE as secondary) follow the challenge spec. Review the code and re-run the pipeline before treating any `data/` scores as live results.
 
-## 6. AI tools used
+## Layout
 
-This project was built with Cursor (AI-assisted coding): scaffolding the package layout, implementing retrieval / generation / evaluation / pipeline / Streamlit UI from staged prompts, and iterating on CLI flags and dry-run behavior. Design choices (TF-IDF few-shot over fine-tuning, LLM-judge accuracy with a mismatched-reference check, ROUGE-L as secondary only) were specified in the challenge prompts and implemented accordingly. Always re-run the pipeline yourself before treating numbers in `data/` as live evaluation results — checked-in JSON may reflect a prior `--dry-run`.
-
-## Project layout
-
-| Path | Purpose |
-|------|---------|
-| `src/generate_dataset.py` | Synthetic email/reply dataset |
-| `src/retrieval.py` | TF-IDF top-*k* over incoming email text |
-| `src/generate_reply.py` | Few-shot Claude suggested replies |
-| `src/evaluate.py` | LLM-judge accuracy + ROUGE-L + validation |
-| `src/pipeline.py` | Runs the three stages in order |
-| `app.py` | Streamlit dashboard |
-| `data/brand_voice.md` | Brand tone/style guidelines |
-| `requirements.txt` | `anthropic`, `streamlit`, `pandas`, `scikit-learn` |
+| Path | Role |
+|------|------|
+| `src/generate_dataset.py` | Synthetic archive |
+| `src/retrieval.py` | TF-IDF top-*k* |
+| `src/generate_reply.py` | Few-shot Claude drafts |
+| `src/evaluate.py` | Judge + ROUGE-L + corruption test |
+| `src/pipeline.py` | Runs the three stages |
+| `app.py` | Dashboard |
+| `data/brand_voice.md` | Tone guide |
+| `requirements.txt` | anthropic, streamlit, pandas, scikit-learn |
