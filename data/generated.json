@@ -1,0 +1,35 @@
+[
+  {
+    "id": "test_0",
+    "category": "feature_request",
+    "subject": "Can we get Slack alerts for new tickets?",
+    "body": "Hey,\n\nLove the product so far. One ask: can we push new ticket notifications into a Slack channel? We miss emails when we're heads-down. Is this on the roadmap or possible via API?\n\nDevon",
+    "reference_reply": "Hi Devon,\n\nGreat timing \u2014 Slack ticket alerts are in beta. I can enable it on your workspace today: Settings \u2192 Integrations \u2192 Slack, then pick a channel. If you'd rather use the API, here's the webhook docs: docs.example.com/slack. Want me to turn on beta access for your account?\n\n\u2014 Riley",
+    "generated_reply": "[dry-run] Suggested reply for: Can we get Slack alerts for new tickets?\nRetrieved examples: train_2, train_0, train_1",
+    "retrieved_ids": [
+      "train_2",
+      "train_0",
+      "train_1"
+    ],
+    "retrieved_examples": [
+      {
+        "id": "train_2",
+        "score": 0.022646245342111824,
+        "subject": "Pricing for a 40-person team",
+        "category": "sales_inquiry"
+      },
+      {
+        "id": "train_0",
+        "score": 0.0,
+        "subject": "Export CSV keeps failing with 500 error",
+        "category": "bug_report"
+      },
+      {
+        "id": "train_1",
+        "score": 0.0,
+        "subject": "Cancel our subscription",
+        "category": "cancellation_churn"
+      }
+    ]
+  }
+]
