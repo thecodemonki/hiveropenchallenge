@@ -1,0 +1,11 @@
+[
+  {
+    "customer_name": "Devon Blake",
+    "subject": "Can we get Slack alerts for new tickets?",
+    "body": "Hey,\n\nLove the product so far. One ask: can we push new ticket notifications into a Slack channel? We miss emails when we're heads-down. Is this on the roadmap or possible via API?\n\nDevon",
+    "reply": "Hi Devon,\n\nGreat timing \u2014 Slack ticket alerts are in beta. I can enable it on your workspace today: Settings \u2192 Integrations \u2192 Slack, then pick a channel. If you'd rather use the API, here's the webhook docs: docs.example.com/slack. Want me to turn on beta access for your account?\n\n\u2014 Riley",
+    "category": "feature_request",
+    "customer_tier": "standard",
+    "sentiment": "positive"
+  }
+]

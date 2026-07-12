@@ -1,0 +1,38 @@
+[
+  {
+    "customer_name": "Marcus Chen",
+    "subject": "Export CSV keeps failing with 500 error",
+    "body": "Hello,\n\nWhenever I try to export contacts as CSV from Settings \u2192 Data, I get a 500 error after about 10 seconds. Happening on Chrome and Firefox. Account: acme-ops. Started yesterday afternoon.\n\nMarcus",
+    "reply": "Hi Marcus,\n\nThanks for the details \u2014 we've reproduced the 500 on CSV export for larger contact lists. Engineering has a fix queued for deploy today. In the meantime, try exporting in batches under 5k rows, or reply and I'll pull a CSV for you manually.\n\nI'll update you when the fix is live.\n\n\u2014 Jordan",
+    "category": "bug_report",
+    "customer_tier": "enterprise",
+    "sentiment": "frustrated"
+  },
+  {
+    "customer_name": "Elena Rossi",
+    "subject": "Cancel our subscription",
+    "body": "Hi,\n\nWe need to cancel our Pro plan effective end of this billing cycle. We're consolidating tools and won't need the seats. Please confirm cancellation and whether we keep access until the period ends.\n\nElena",
+    "reply": "Hi Elena,\n\nI've scheduled your Pro plan to cancel at the end of your current billing period (April 30). You'll keep full access until then, and you won't be charged again. If you want an export of your data before then, say the word and I'll walk you through it.\n\nSorry to see you go \u2014 we're here if plans change.\n\n\u2014 Sam",
+    "category": "cancellation_churn",
+    "customer_tier": "pro",
+    "sentiment": "neutral"
+  },
+  {
+    "customer_name": "Aisha Rahman",
+    "subject": "Pricing for a 40-person team",
+    "body": "Hello,\n\nWe're evaluating your platform for a ~40-person customer support team. Could you share pricing for Pro vs Enterprise, and whether annual billing includes a discount? We'd also like a short demo next week if possible.\n\nAisha",
+    "reply": "Hi Aisha,\n\nHappy to help. For ~40 seats, Pro is usually the fit; Enterprise adds SSO, custom roles, and a dedicated CSM. Annual billing is 20% off monthly. I've held a 30-min demo slot Tuesday 2pm ET \u2014 reply with a better time if needed, and I'll send a calendar invite plus a one-pager comparing the plans.\n\n\u2014 Casey",
+    "category": "sales_inquiry",
+    "customer_tier": "standard",
+    "sentiment": "positive"
+  },
+  {
+    "customer_name": "Priya Shah",
+    "subject": "Refund for double charge on invoice #4821",
+    "body": "Hi team,\n\nI was charged twice for our March invoice (#4821). One charge went through on the 1st and another on the 3rd for the same amount. Can you refund the duplicate and confirm once it's done?\n\nThanks,\nPriya",
+    "reply": "Hi Priya,\n\nYou're right \u2014 we see two charges for invoice #4821. I've issued a full refund for the duplicate ($249), which should land in 3\u20135 business days. I'll email you the refund confirmation once it posts.\n\nSorry for the hassle.\n\nBest,\nAlex",
+    "category": "billing_refund",
+    "customer_tier": "pro",
+    "sentiment": "frustrated"
+  }
+]
