@@ -162,28 +162,28 @@ section[data-testid="stSidebar"] div[data-baseweb="slider"] div[role="slider"] {
 
 /* —— Hero —— */
 .hero {
-    padding: 0.1rem 0 0.95rem 0;
+    padding: 0 0 0.75rem 0;
     border-bottom: 1px solid var(--td-border);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.15rem;
 }
 .hero-top {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    gap: 0.65rem 1rem;
-    margin-bottom: 0.35rem;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
 }
 .hero-eyebrow {
     color: var(--td-primary);
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin: 0 0 0.35rem 0;
+    margin: 0 0 0.25rem 0;
 }
 .hero-title {
-    font-size: 2.15rem;
+    font-size: 1.95rem;
     font-weight: 700;
     letter-spacing: -0.04em;
     color: var(--td-text);
@@ -192,24 +192,27 @@ section[data-testid="stSidebar"] div[data-baseweb="slider"] div[role="slider"] {
 }
 .hero-subtitle {
     color: var(--td-muted);
-    font-size: 0.95rem;
-    margin: 0.4rem 0 0.7rem 0;
-    line-height: 1.4;
-    max-width: 28rem;
+    font-size: 0.9rem;
+    margin: 0.35rem 0 0.55rem 0;
+    line-height: 1.35;
+    max-width: 26rem;
+}
+.hero-subtitle strong {
+    color: var(--td-primary);
+    font-weight: 700;
 }
 .mode-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 0.36rem 0.7rem;
+    padding: 0.32rem 0.65rem;
     border-radius: var(--td-radius-sm);
     border: 1px solid var(--td-border);
     white-space: nowrap;
-    margin-top: 0.25rem;
     background: var(--td-surface);
 }
 .mode-badge.live {
@@ -223,8 +226,8 @@ section[data-testid="stSidebar"] div[data-baseweb="slider"] div[role="slider"] {
     color: var(--td-muted);
 }
 .mode-badge .dot {
-    width: 0.38rem;
-    height: 0.38rem;
+    width: 0.36rem;
+    height: 0.36rem;
     border-radius: 999px;
     background: currentColor;
     box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
@@ -236,45 +239,48 @@ section[data-testid="stSidebar"] div[data-baseweb="slider"] div[role="slider"] {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
 }
 .process-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
     background: var(--td-surface);
     border: 1px solid var(--td-border);
     color: var(--td-text);
-    font-size: 0.76rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    padding: 0.3rem 0.58rem;
+    padding: 0.26rem 0.5rem;
     border-radius: var(--td-radius-sm);
 }
 .process-pill span.num {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 5px;
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 4px;
     background: var(--td-navy);
     color: #fff;
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     font-weight: 700;
 }
-.process-arrow { color: #94a3b8; font-size: 0.8rem; }
+.process-arrow { color: #94a3b8; font-size: 0.75rem; }
 
 /* —— Sections —— */
 .section-head {
-    margin: 1.5rem 0 0.75rem 0;
-    padding-top: 0.75rem;
+    margin: 1.25rem 0 0.55rem 0;
+    padding-top: 0.65rem;
     border-top: 1px solid var(--td-border);
+}
+.section-head.proof-focus {
+    margin-top: 0.85rem;
 }
 .section-label {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
+    gap: 0.45rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -283,18 +289,18 @@ section[data-testid="stSidebar"] div[data-baseweb="slider"] div[role="slider"] {
 }
 .section-label::before {
     content: "";
-    width: 0.45rem;
-    height: 0.45rem;
+    width: 0.4rem;
+    height: 0.4rem;
     border-radius: 2px;
     background: var(--td-primary);
     flex: 0 0 auto;
 }
 .section-lead {
     color: var(--td-muted);
-    font-size: 0.84rem;
-    margin: 0.25rem 0 0 0;
-    line-height: 1.4;
-    max-width: 36rem;
+    font-size: 0.8rem;
+    margin: 0.2rem 0 0 0;
+    line-height: 1.35;
+    max-width: 32rem;
 }
 
 div[data-testid="stMetric"] {
@@ -319,77 +325,83 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
     color: #e2e8f0;
     border: 1px solid #1e293b;
     border-radius: var(--td-radius);
-    padding: 1.15rem 1.25rem 1.1rem 1.25rem;
-    margin: 0.1rem 0 0.65rem 0;
+    padding: 1.05rem 1.15rem 1rem 1.15rem;
+    margin: 0 0 0.5rem 0;
     box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
 }
 .proof-card.proof-success {
-    background: linear-gradient(165deg, #042f2e 0%, var(--td-navy) 58%);
+    background: linear-gradient(165deg, #042f2e 0%, var(--td-navy) 52%);
     border-color: var(--td-primary);
+    box-shadow: 0 18px 40px rgba(15, 118, 110, 0.28);
+    padding: 1.25rem 1.35rem 1.15rem 1.35rem;
 }
 .proof-card.proof-dry {
     background: #111827;
     border-color: #334155;
+    box-shadow: none;
 }
 .proof-header {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    gap: 0.55rem 1rem;
-    margin-bottom: 0.95rem;
+    gap: 0.45rem 0.85rem;
+    margin-bottom: 0.85rem;
 }
 .proof-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #F8FAFC;
     margin: 0;
     letter-spacing: -0.02em;
-    line-height: 1.25;
+    line-height: 1.2;
 }
-.proof-lead {
-    color: #94a3b8;
-    font-size: 0.84rem;
-    margin: 0.3rem 0 0 0;
-    line-height: 1.4;
-    max-width: 30rem;
+.proof-card.proof-success .proof-title {
+    font-size: 1.12rem;
 }
 .compare-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.65rem;
+    gap: 0.55rem;
     margin: 0;
 }
 .compare-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.65rem;
+    gap: 0.55rem;
 }
 @media (max-width: 640px) {
     .compare-row { grid-template-columns: 1fr; }
 }
 .compare-cell {
     background: rgba(248, 250, 252, 0.04);
-    border: 1px solid rgba(226, 232, 240, 0.14);
+    border: 1px solid rgba(226, 232, 240, 0.12);
     border-radius: var(--td-radius-sm);
-    padding: 0.85rem 0.95rem;
+    padding: 0.7rem 0.85rem;
 }
 .compare-cell.gap-cell {
-    background: linear-gradient(160deg, rgba(20, 184, 166, 0.22) 0%, rgba(15, 118, 110, 0.12) 100%);
-    border: 1px solid rgba(20, 184, 166, 0.4);
-    padding: 1rem 1.05rem;
+    background: linear-gradient(160deg, rgba(20, 184, 166, 0.2) 0%, rgba(15, 118, 110, 0.1) 100%);
+    border: 1px solid rgba(20, 184, 166, 0.35);
+    padding: 0.95rem 1.05rem;
+    text-align: left;
+}
+.proof-card.proof-success .compare-cell.gap-cell {
+    background: linear-gradient(155deg, rgba(20, 184, 166, 0.32) 0%, rgba(15, 118, 110, 0.14) 100%);
+    border: 1px solid rgba(45, 212, 191, 0.55);
+    box-shadow: inset 0 1px 0 rgba(204, 251, 241, 0.12);
+    padding: 1.15rem 1.2rem 1.05rem 1.2rem;
 }
 .compare-label {
-    font-size: 0.66rem;
+    font-size: 0.64rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #94a3b8;
-    margin: 0 0 0.3rem 0;
+    margin: 0 0 0.25rem 0;
     font-weight: 700;
 }
 .compare-cell.gap-cell .compare-label { color: #99F6E4; }
 .compare-value {
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: #F8FAFC;
     letter-spacing: -0.03em;
@@ -397,21 +409,33 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
     line-height: 1.05;
 }
 .compare-cell.gap-cell .compare-value {
-    font-size: 2.55rem;
+    font-size: 2.75rem;
     color: #CCFBF1;
+    letter-spacing: -0.045em;
+}
+.proof-card.proof-success .compare-cell.gap-cell .compare-value {
+    font-size: 3.35rem;
+    color: #F0FDFA;
+}
+.compare-hint {
+    margin: 0.35rem 0 0 0;
+    font-size: 0.78rem;
+    color: #99F6E4;
+    font-weight: 500;
+    line-height: 1.3;
 }
 .status-chip {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 650;
-    padding: 0.3rem 0.6rem;
+    padding: 0.28rem 0.55rem;
     border-radius: var(--td-radius-sm);
     border: 1px solid transparent;
 }
 .status-chip.ok {
     color: #CCFBF1;
-    background: rgba(15, 118, 110, 0.32);
-    border-color: rgba(20, 184, 166, 0.4);
+    background: rgba(15, 118, 110, 0.38);
+    border-color: rgba(20, 184, 166, 0.45);
 }
 .status-chip.warn {
     color: #e2e8f0;
@@ -424,26 +448,25 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
     border-color: rgba(226, 232, 240, 0.14);
 }
 .dry-run-inline {
-    margin-top: 0.65rem;
-    font-size: 0.78rem;
+    margin-top: 0.55rem;
+    font-size: 0.76rem;
     color: #cbd5e1;
     background: rgba(71, 85, 105, 0.35);
     border: 1px solid rgba(226, 232, 240, 0.12);
     border-radius: var(--td-radius-sm);
-    padding: 0.55rem 0.75rem;
-    line-height: 1.4;
+    padding: 0.5rem 0.7rem;
+    line-height: 1.35;
 }
 .interpretation {
     background: var(--td-surface);
     border: 1px solid var(--td-border);
     border-left: 3px solid var(--td-primary);
     border-radius: var(--td-radius);
-    padding: 0.7rem 0.9rem;
+    padding: 0.65rem 0.8rem;
     color: var(--td-muted);
-    font-size: 0.84rem;
-    line-height: 1.45;
-    box-shadow: var(--td-shadow);
-    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-top: 0.35rem;
 }
 .interpretation.interp-success {
     background: #F0FDFA;
@@ -478,12 +501,12 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
 }
 .score-row {
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
 }
 .score-row .acc {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--td-primary);
     letter-spacing: -0.03em;
@@ -491,17 +514,18 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
     line-height: 1;
 }
 .score-row .acc span {
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--td-muted);
-    margin-right: 0.35rem;
+    margin-right: 0.4rem;
 }
 .score-row .dims {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: var(--td-muted);
     margin: 0;
+    line-height: 1.35;
 }
 .score-row .dims b {
     color: var(--td-text);
@@ -622,10 +646,11 @@ def run_pipeline(n: int, dry_run: bool) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
 
 
-def section(label: str, lead: str = "") -> None:
+def section(label: str, lead: str = "", *, focus: bool = False) -> None:
     lead_html = f'<p class="section-lead">{lead}</p>' if lead else ""
+    cls = "section-head proof-focus" if focus else "section-head"
     st.markdown(
-        f'<div class="section-head"><div class="section-label">{label}</div>{lead_html}</div>',
+        f'<div class="{cls}"><div class="section-label">{label}</div>{lead_html}</div>',
         unsafe_allow_html=True,
     )
 
@@ -697,19 +722,35 @@ def distribution_chart(df: pd.DataFrame):
     st.altair_chart(chart, width="stretch")
 
 
-def render_hero(dry_run: bool | None = None) -> None:
+def render_hero(
+    dry_run: bool | None = None,
+    gap: float | None = None,
+) -> None:
     if dry_run is True:
         mode = (
             '<span class="mode-badge dry"><span class="dot"></span>'
             "Dry-run</span>"
+        )
+        subtitle = "Fixtures only. Live run proves the gap."
+    elif dry_run is False and gap is not None:
+        mode = (
+            '<span class="mode-badge live"><span class="dot"></span>'
+            "Live</span>"
+        )
+        gap_sign = "+" if gap > 0 else ""
+        subtitle = (
+            f'Look at the <strong>gap ({gap_sign}{gap:.1f})</strong>, '
+            "then one ticket."
         )
     elif dry_run is False:
         mode = (
             '<span class="mode-badge live"><span class="dot"></span>'
             "Live</span>"
         )
+        subtitle = "Look at the gap, then one ticket."
     else:
         mode = ""
+        subtitle = "Retrieve · draft · validate."
 
     st.markdown(
         f"""
@@ -721,9 +762,7 @@ def render_hero(dry_run: bool | None = None) -> None:
             </div>
             {mode}
           </div>
-          <p class="hero-subtitle">
-            Retrieve · draft · prove the score discriminates.
-          </p>
+          <p class="hero-subtitle">{subtitle}</p>
           <div class="process-row">
             <div class="process-pill"><span class="num">1</span>Retrieve</div>
             <span class="process-arrow">→</span>
@@ -748,19 +787,29 @@ def render_validation_proof(validation: dict) -> None:
     if dry_run:
         card_class = "proof-card proof-dry"
         status = '<span class="status-chip warn">Dry-run</span>'
+        title = "Validation gap"
         dry_banner = (
             '<div class="dry-run-inline">'
-            "Placeholder scores — gap ≈ 0. Switch to Live and re-run."
+            "Placeholder scores · gap ≈ 0. Re-run in Live."
             "</div>"
         )
+        gap_hint = ""
     elif meaningful:
         card_class = "proof-card proof-success"
         status = '<span class="status-chip ok">Discriminates</span>'
+        title = "Validation gap"
         dry_banner = ""
+        gap_hint = (
+            f'<p class="compare-hint">'
+            f"Correct {correct:.1f} − mismatched {mismatched:.1f}"
+            f"</p>"
+        )
     else:
         card_class = "proof-card"
         status = '<span class="status-chip neutral">Weak gap</span>'
+        title = "Validation gap"
         dry_banner = ""
+        gap_hint = ""
 
     gap_sign = "+" if gap > 0 else ""
     interp_class = "interpretation interp-success" if meaningful else "interpretation"
@@ -769,16 +818,14 @@ def render_validation_proof(validation: dict) -> None:
         f"""
         <div class="{card_class}">
           <div class="proof-header">
-            <div>
-              <p class="proof-title">Does the score discriminate?</p>
-              <p class="proof-lead">Same draft · correct vs. wrong reference.</p>
-            </div>
+            <p class="proof-title">{title}</p>
             {status}
           </div>
           <div class="compare-grid">
             <div class="compare-cell gap-cell">
               <p class="compare-label">Accuracy gap</p>
               <p class="compare-value">{gap_sign}{gap:.1f}</p>
+              {gap_hint}
             </div>
             <div class="compare-row">
               <div class="compare-cell">
@@ -797,9 +844,9 @@ def render_validation_proof(validation: dict) -> None:
         unsafe_allow_html=True,
     )
     if interpretation:
-        with st.expander("Run notes", expanded=False):
+        with st.expander("Notes", expanded=False):
             st.markdown(
-                f'<div class="{interp_class}">{interpretation}</div>',
+                f'<div class="{interp_class}">{html.escape(str(interpretation))}</div>',
                 unsafe_allow_html=True,
             )
 
@@ -838,7 +885,6 @@ def render_ticket_review(df: pd.DataFrame, gen_by_id: dict) -> None:
               · Tone <b>{int(row['tone_fidelity'])}</b>
               · Correct <b>{int(row['correctness'])}</b>
               · Concise <b>{int(row['conciseness'])}</b>
-              <span style="color:#94a3b8"> /5</span>
             </p>
           </div>
         </div>
@@ -847,33 +893,42 @@ def render_ticket_review(df: pd.DataFrame, gen_by_id: dict) -> None:
     )
 
     with st.container(border=True):
-        st.markdown('<p class="panel-title">Customer</p>', unsafe_allow_html=True)
+        st.markdown(
+            '<p class="panel-title">Customer email</p>',
+            unsafe_allow_html=True,
+        )
         st.text_area(
             "Customer email",
             incoming_body or "(body not in generated.json)",
-            height=160,
+            height=150,
             disabled=True,
             label_visibility="collapsed",
         )
 
-    c_draft, c_ref = st.columns(2, gap="medium")
+    c_draft, c_ref = st.columns(2, gap="small")
     with c_draft:
         with st.container(border=True):
-            st.markdown('<p class="panel-title">Draft</p>', unsafe_allow_html=True)
+            st.markdown(
+                '<p class="panel-title">Model draft</p>',
+                unsafe_allow_html=True,
+            )
             st.text_area(
                 "Model draft",
                 row["generated_reply"],
-                height=240,
+                height=220,
                 disabled=True,
                 label_visibility="collapsed",
             )
     with c_ref:
         with st.container(border=True):
-            st.markdown('<p class="panel-title">Sent</p>', unsafe_allow_html=True)
+            st.markdown(
+                '<p class="panel-title">Agent-sent reply</p>',
+                unsafe_allow_html=True,
+            )
             st.text_area(
                 "Agent-sent reply",
                 row["reference_reply"],
-                height=240,
+                height=220,
                 disabled=True,
                 label_visibility="collapsed",
             )
@@ -964,7 +1019,12 @@ def main() -> None:
     generated = load_json(DATA / "generated.json") or []
 
     dry_flag = None if not validation else bool(validation.get("dry_run"))
-    render_hero(dry_run=dry_flag)
+    gap_val = (
+        None
+        if not validation
+        else float(validation.get("accuracy_gap", 0))
+    )
+    render_hero(dry_run=dry_flag, gap=gap_val)
 
     if not evaluations or not validation:
         st.info("No results yet. Run from the sidebar.")
@@ -973,14 +1033,15 @@ def main() -> None:
     gen_by_id = {g["id"]: g for g in generated}
     df = pd.DataFrame(evaluations)
 
-    section("1 · Validation")
+    is_dry = bool(validation.get("dry_run"))
+    live_proof = (not is_dry) and gap_val is not None and gap_val >= 15
+    section("Proof", focus=live_proof)
     render_validation_proof(validation)
 
-    section("2 · Ticket")
+    section("Ticket")
     render_ticket_review(df, gen_by_id)
 
-    is_dry = bool(validation.get("dry_run"))
-    support_label = "More · table & charts" + (" · dry-run" if is_dry else "")
+    support_label = "More" + (" · dry-run" if is_dry else "")
     with st.expander(support_label, expanded=False):
         tab_results, tab_charts = st.tabs(["Table", "Charts"])
 
@@ -1033,8 +1094,6 @@ def main() -> None:
             st.caption(f"{len(display)} shown")
 
         with tab_charts:
-            if is_dry:
-                st.caption("Dry-run scores are constant.")
             c1, c2 = st.columns(2, gap="medium")
             with c1:
                 st.caption("By category")
