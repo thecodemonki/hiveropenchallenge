@@ -41,7 +41,7 @@ def main() -> None:
         st.header("Pipeline")
         n = st.slider("Dataset size (--n)", min_value=5, max_value=80, value=40, step=5)
         dry_run = st.checkbox("Dry-run (no API calls)", value=True)
-        run_clicked = st.button("Run pipeline", type="primary", use_container_width=True)
+        run_clicked = st.button("Run pipeline", type="primary", width="stretch")
 
         if run_clicked:
             with st.spinner("Running pipeline…"):
@@ -137,7 +137,7 @@ def main() -> None:
         ]
         if c in filtered.columns
     ]
-    st.dataframe(filtered[show_cols], use_container_width=True, hide_index=True)
+    st.dataframe(filtered[show_cols], width="stretch", hide_index=True)
 
     # --- detail view ---
     st.subheader("Ticket detail")
