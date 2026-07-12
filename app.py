@@ -47,7 +47,7 @@ html, body, [class*="css"], .stApp {
     background: var(--td-bg);
 }
 h1, h2, h3, .hero-title, .proof-title, .panel-title, .section-label,
-.sidebar-mark .copy .name, .score-chip .svalue, .compare-value {
+.sidebar-mark .copy .name, .score-row .acc, .compare-value {
     font-family: "Inter Tight", Inter, system-ui, sans-serif !important;
 }
 
@@ -57,11 +57,11 @@ div[data-testid="stDecoration"] { display: none; }
 footer { visibility: hidden; }
 
 .block-container {
-    padding-top: 2rem !important;
-    padding-bottom: 4rem !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-    max-width: 1480px;
+    padding-top: 1.5rem !important;
+    padding-bottom: 3rem !important;
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
+    max-width: 1120px;
 }
 
 /* —— Sidebar —— */
@@ -124,20 +124,14 @@ section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--td-accent) !important;
-    margin: 0 0 0.4rem 0;
-}
-.sidebar-help {
-    color: #94a3b8 !important;
-    font-size: 0.82rem;
-    line-height: 1.45;
-    margin: 0 0 1.15rem 0;
+    margin: 0 0 0.55rem 0;
 }
 .sidebar-mode-note {
-    font-size: 0.78rem;
-    line-height: 1.4;
+    font-size: 0.74rem;
+    line-height: 1.35;
     border-radius: var(--td-radius-sm);
-    padding: 0.6rem 0.75rem;
-    margin: 0.7rem 0 1rem 0;
+    padding: 0.5rem 0.65rem;
+    margin: 0.55rem 0 0.85rem 0;
     border: 1px solid transparent;
 }
 .sidebar-mode-note.dry {
@@ -168,54 +162,54 @@ section[data-testid="stSidebar"] div[data-baseweb="slider"] div[role="slider"] {
 
 /* —— Hero —— */
 .hero {
-    padding: 0.2rem 0 1.35rem 0;
+    padding: 0.1rem 0 0.95rem 0;
     border-bottom: 1px solid var(--td-border);
-    margin-bottom: var(--td-space);
+    margin-bottom: 1.5rem;
 }
 .hero-top {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 0.85rem 1.25rem;
-    margin-bottom: 0.55rem;
+    gap: 0.65rem 1rem;
+    margin-bottom: 0.35rem;
 }
 .hero-eyebrow {
     color: var(--td-primary);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin: 0 0 0.55rem 0;
+    margin: 0 0 0.35rem 0;
 }
 .hero-title {
-    font-size: 2.55rem;
+    font-size: 2.15rem;
     font-weight: 700;
     letter-spacing: -0.04em;
     color: var(--td-text);
     margin: 0;
-    line-height: 1.06;
+    line-height: 1.05;
 }
 .hero-subtitle {
     color: var(--td-muted);
-    font-size: 1.05rem;
-    margin: 0.7rem 0 1rem 0;
-    line-height: 1.55;
-    max-width: 34rem;
+    font-size: 0.95rem;
+    margin: 0.4rem 0 0.7rem 0;
+    line-height: 1.4;
+    max-width: 28rem;
 }
 .mode-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    font-size: 0.7rem;
+    gap: 0.4rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 0.42rem 0.78rem;
+    padding: 0.36rem 0.7rem;
     border-radius: var(--td-radius-sm);
     border: 1px solid var(--td-border);
     white-space: nowrap;
-    margin-top: 0.35rem;
+    margin-top: 0.25rem;
     background: var(--td-surface);
 }
 .mode-badge.live {
@@ -229,8 +223,8 @@ section[data-testid="stSidebar"] div[data-baseweb="slider"] div[role="slider"] {
     color: var(--td-muted);
 }
 .mode-badge .dot {
-    width: 0.42rem;
-    height: 0.42rem;
+    width: 0.38rem;
+    height: 0.38rem;
     border-radius: 999px;
     background: currentColor;
     box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
@@ -242,126 +236,65 @@ section[data-testid="stSidebar"] div[data-baseweb="slider"] div[role="slider"] {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.35rem;
 }
 .process-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.35rem;
     background: var(--td-surface);
     border: 1px solid var(--td-border);
     color: var(--td-text);
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     font-weight: 600;
-    padding: 0.36rem 0.68rem;
+    padding: 0.3rem 0.58rem;
     border-radius: var(--td-radius-sm);
 }
 .process-pill span.num {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.1rem;
-    height: 1.1rem;
-    border-radius: 6px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 5px;
     background: var(--td-navy);
     color: #fff;
-    font-size: 0.64rem;
+    font-size: 0.6rem;
     font-weight: 700;
 }
-.process-arrow { color: #94a3b8; font-size: 0.85rem; }
-
-.reviewer-guide {
-    background: var(--td-surface);
-    border: 1px solid var(--td-border);
-    border-radius: var(--td-radius);
-    padding: var(--td-pad);
-    margin: 1.15rem 0 0 0;
-    box-shadow: var(--td-shadow);
-}
-.reviewer-guide .rg-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--td-primary);
-    margin: 0 0 0.75rem 0;
-}
-.reviewer-guide .rg-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
-}
-@media (max-width: 900px) {
-    .reviewer-guide .rg-grid { grid-template-columns: 1fr; }
-}
-.reviewer-guide .rg-item {
-    background: var(--td-bg);
-    border: 1px solid var(--td-border);
-    border-radius: var(--td-radius-sm);
-    padding: 0.75rem 0.85rem;
-}
-.reviewer-guide .rg-item .n {
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--td-primary);
-    margin: 0 0 0.25rem 0;
-}
-.reviewer-guide .rg-item .t {
-    font-size: 0.9rem;
-    font-weight: 650;
-    color: var(--td-text);
-    margin: 0 0 0.2rem 0;
-    letter-spacing: -0.01em;
-}
-.reviewer-guide .rg-item .d {
-    font-size: 0.8rem;
-    color: var(--td-muted);
-    margin: 0;
-    line-height: 1.4;
-}
-
-.story-step {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--td-primary);
-    margin: 0 0 0.15rem 0;
-}
+.process-arrow { color: #94a3b8; font-size: 0.8rem; }
 
 /* —— Sections —— */
 .section-head {
-    margin: var(--td-space) 0 1rem 0;
-    padding-top: 0.9rem;
+    margin: 1.5rem 0 0.75rem 0;
+    padding-top: 0.75rem;
     border-top: 1px solid var(--td-border);
 }
 .section-label {
     display: flex;
     align-items: center;
-    gap: 0.55rem;
-    font-size: 0.76rem;
+    gap: 0.5rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--td-text);
-    margin: 0 0 0.28rem 0;
+    margin: 0;
 }
 .section-label::before {
     content: "";
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.45rem;
+    height: 0.45rem;
     border-radius: 2px;
     background: var(--td-primary);
     flex: 0 0 auto;
 }
 .section-lead {
     color: var(--td-muted);
-    font-size: 0.9rem;
-    margin: 0;
-    line-height: 1.45;
-    max-width: 42rem;
+    font-size: 0.84rem;
+    margin: 0.25rem 0 0 0;
+    line-height: 1.4;
+    max-width: 36rem;
 }
 
 div[data-testid="stMetric"] {
@@ -386,9 +319,9 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
     color: #e2e8f0;
     border: 1px solid #1e293b;
     border-radius: var(--td-radius);
-    padding: 1.5rem 1.55rem 1.35rem 1.55rem;
-    margin: 0.15rem 0 0.85rem 0;
-    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22);
+    padding: 1.15rem 1.25rem 1.1rem 1.25rem;
+    margin: 0.1rem 0 0.65rem 0;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
 }
 .proof-card.proof-success {
     background: linear-gradient(165deg, #042f2e 0%, var(--td-navy) 58%);
@@ -403,122 +336,75 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 0.75rem 1.25rem;
-    margin-bottom: 1.15rem;
+    gap: 0.55rem 1rem;
+    margin-bottom: 0.95rem;
 }
-.proof-kicker {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #94a3b8;
-    margin: 0 0 0.4rem 0;
-}
-.proof-card.proof-success .proof-kicker { color: var(--td-accent); }
 .proof-title {
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: #F8FAFC;
-    margin: 0 0 0.4rem 0;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
 }
 .proof-lead {
     color: #94a3b8;
-    font-size: 0.92rem;
-    margin: 0;
-    line-height: 1.5;
-    max-width: 36rem;
+    font-size: 0.84rem;
+    margin: 0.3rem 0 0 0;
+    line-height: 1.4;
+    max-width: 30rem;
 }
 .compare-grid {
     display: grid;
-    grid-template-columns: 1.45fr 1fr 1fr;
-    gap: 0.85rem;
-    margin: 0 0 1rem 0;
-    align-items: stretch;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    margin: 0;
 }
-@media (max-width: 900px) {
-    .compare-grid { grid-template-columns: 1fr; }
+.compare-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+}
+@media (max-width: 640px) {
+    .compare-row { grid-template-columns: 1fr; }
 }
 .compare-cell {
     background: rgba(248, 250, 252, 0.04);
     border: 1px solid rgba(226, 232, 240, 0.14);
     border-radius: var(--td-radius-sm);
-    padding: var(--td-pad);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 0.85rem 0.95rem;
 }
 .compare-cell.gap-cell {
     background: linear-gradient(160deg, rgba(20, 184, 166, 0.22) 0%, rgba(15, 118, 110, 0.12) 100%);
     border: 1px solid rgba(20, 184, 166, 0.4);
-    min-height: 8.2rem;
+    padding: 1rem 1.05rem;
 }
 .compare-label {
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #94a3b8;
-    margin: 0 0 0.45rem 0;
+    margin: 0 0 0.3rem 0;
     font-weight: 700;
 }
 .compare-cell.gap-cell .compare-label { color: #99F6E4; }
 .compare-value {
-    font-size: 1.85rem;
+    font-size: 1.55rem;
     font-weight: 700;
     color: #F8FAFC;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     margin: 0;
     line-height: 1.05;
 }
 .compare-cell.gap-cell .compare-value {
-    font-size: 3rem;
+    font-size: 2.55rem;
     color: #CCFBF1;
-}
-.compare-sub {
-    font-size: 0.8rem;
-    color: #94a3b8;
-    margin: 0.5rem 0 0 0;
-    line-height: 1.4;
-}
-.compare-cell.gap-cell .compare-sub {
-    color: #99F6E4;
-    font-weight: 500;
-}
-.proof-takeaway {
-    display: flex;
-    gap: 0.65rem;
-    align-items: flex-start;
-    background: rgba(248, 250, 252, 0.05);
-    border: 1px solid rgba(226, 232, 240, 0.12);
-    border-radius: var(--td-radius-sm);
-    padding: 0.8rem 0.95rem;
-    margin: 0 0 0.85rem 0;
-}
-.proof-takeaway .mark {
-    flex: 0 0 auto;
-    width: 0.4rem;
-    height: 0.4rem;
-    border-radius: 999px;
-    background: var(--td-accent);
-    margin-top: 0.4rem;
-    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.15);
-}
-.proof-takeaway p {
-    margin: 0;
-    color: #e2e8f0;
-    font-size: 0.9rem;
-    line-height: 1.45;
-}
-.proof-takeaway strong {
-    color: #F8FAFC;
-    font-weight: 650;
 }
 .status-chip {
     display: inline-block;
-    font-size: 0.74rem;
+    font-size: 0.7rem;
     font-weight: 650;
-    padding: 0.34rem 0.72rem;
+    padding: 0.3rem 0.6rem;
     border-radius: var(--td-radius-sm);
     border: 1px solid transparent;
 }
@@ -538,39 +424,31 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
     border-color: rgba(226, 232, 240, 0.14);
 }
 .dry-run-inline {
-    margin-top: 0.15rem;
-    font-size: 0.8rem;
+    margin-top: 0.65rem;
+    font-size: 0.78rem;
     color: #cbd5e1;
     background: rgba(71, 85, 105, 0.35);
     border: 1px solid rgba(226, 232, 240, 0.12);
     border-radius: var(--td-radius-sm);
-    padding: 0.65rem 0.85rem;
-    line-height: 1.45;
+    padding: 0.55rem 0.75rem;
+    line-height: 1.4;
 }
 .interpretation {
     background: var(--td-surface);
     border: 1px solid var(--td-border);
-    border-left: 4px solid var(--td-primary);
+    border-left: 3px solid var(--td-primary);
     border-radius: var(--td-radius);
-    padding: 0.9rem 1.05rem;
+    padding: 0.7rem 0.9rem;
     color: var(--td-muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.84rem;
+    line-height: 1.45;
     box-shadow: var(--td-shadow);
+    margin-top: 0.5rem;
 }
 .interpretation.interp-success {
     background: #F0FDFA;
     border-color: #99F6E4;
 }
-.interpretation .interp-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--td-muted);
-    margin-bottom: 0.3rem;
-}
-.interpretation.interp-success .interp-label { color: var(--td-primary); }
 
 /* —— Ticket review —— */
 .ticket-shell {
@@ -578,178 +456,88 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
     border: 1px solid var(--td-border);
     border-radius: var(--td-radius);
     box-shadow: var(--td-shadow);
-    padding: 1rem 1.1rem 1.15rem 1.1rem;
-    margin: 0.35rem 0 1rem 0;
+    padding: 0.85rem 1rem;
+    margin: 0.25rem 0 0.65rem 0;
 }
 .ticket-shell .ticket-head {
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--td-border);
+}
+.ticket-shell .ticket-head .th-subject {
+    font-size: 0.95rem;
+    font-weight: 650;
+    color: var(--td-text);
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+.ticket-shell .ticket-head .th-meta {
+    font-size: 0.76rem;
+    color: var(--td-muted);
+    margin: 0.2rem 0 0 0;
+}
+.score-row {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    justify-content: space-between;
     gap: 0.35rem 1rem;
-    margin-bottom: 0.85rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--td-border);
 }
-.ticket-shell .ticket-head .th-label {
+.score-row .acc {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--td-primary);
+    letter-spacing: -0.03em;
+    margin: 0;
+    line-height: 1;
+}
+.score-row .acc span {
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--td-primary);
-    margin: 0 0 0.2rem 0;
+    color: var(--td-muted);
+    margin-right: 0.35rem;
 }
-.ticket-shell .ticket-head .th-meta {
-    font-size: 0.8rem;
+.score-row .dims {
+    font-size: 0.78rem;
     color: var(--td-muted);
     margin: 0;
 }
-.ticket-shell .ticket-head .th-subject {
-    font-size: 1rem;
-    font-weight: 650;
+.score-row .dims b {
     color: var(--td-text);
-    margin: 0.15rem 0 0 0;
-    letter-spacing: -0.015em;
-    max-width: 42rem;
+    font-weight: 650;
 }
 .panel-title {
-    font-size: 0.92rem;
+    font-size: 0.86rem;
     font-weight: 700;
     color: var(--td-text);
-    margin: 0;
+    margin: 0 0 0.55rem 0;
     letter-spacing: -0.01em;
-}
-.panel-meta {
-    font-size: 0.76rem;
-    color: var(--td-muted);
-    margin: 0 0 0.85rem 0;
 }
 div[data-testid="stVerticalBlockBorderWrapper"] {
     background: var(--td-bg) !important;
     border: 1px solid var(--td-border) !important;
     border-radius: var(--td-radius) !important;
     box-shadow: none;
-    padding: 0.15rem;
+    padding: 0.1rem;
 }
 div[data-testid="stVerticalBlockBorderWrapper"] > div {
-    padding: 0.85rem 0.95rem 1rem 0.95rem !important;
+    padding: 0.7rem 0.8rem 0.85rem 0.8rem !important;
 }
-.score-strip {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.55rem;
-    margin: 0;
-}
-@media (max-width: 900px) {
-    .score-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-.score-chip {
-    background: var(--td-bg);
-    border: 1px solid var(--td-border);
-    border-radius: var(--td-radius-sm);
-    padding: 0.7rem 0.8rem;
-}
-.score-chip.total {
-    background: var(--td-primary);
-    border-color: var(--td-primary);
-}
-.score-chip .slabel {
-    font-size: 0.64rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--td-muted);
-    margin: 0 0 0.2rem 0;
-}
-.score-chip.total .slabel { color: rgba(255,255,255,0.78); }
-.score-chip .svalue {
-    font-size: 1.22rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--td-text);
-    margin: 0;
-    line-height: 1.15;
-}
-.score-chip.total .svalue { color: #fff; }
-.score-chip .sunit {
-    font-size: 0.72rem;
-    color: #94a3b8;
-    font-weight: 500;
-}
-.mail-card-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    margin-bottom: 0.25rem;
-}
-.mail-badge {
-    font-size: 0.64rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    border-radius: 999px;
-    border: 1px solid var(--td-border);
-    color: var(--td-muted);
-    background: var(--td-surface);
-}
-.mail-badge.gen {
-    background: #F0FDFA;
-    border-color: #99F6E4;
-    color: var(--td-primary);
-}
-.mail-badge.ref {
-    background: #ECFDF5;
-    border-color: #A7F3D0;
-    color: #047857;
-}
-.mail-subject {
-    font-size: 0.84rem;
-    color: var(--td-text);
-    margin: 0 0 0.65rem 0;
-    line-height: 1.4;
-}
-.mail-subject strong {
-    color: var(--td-muted);
-    font-weight: 600;
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.15rem;
-}
-/* Text areas in compare panels */
 div[data-testid="stVerticalBlockBorderWrapper"] textarea {
     background: var(--td-surface) !important;
     border: 1px solid var(--td-border) !important;
     border-radius: var(--td-radius-sm) !important;
     color: var(--td-text) !important;
-    font-size: 0.9rem !important;
-    line-height: 1.55 !important;
-    padding: 0.85rem 0.95rem !important;
-    min-height: 16rem;
-}
-.retrieved-panel {
-    background: var(--td-surface);
-    border: 1px solid var(--td-border);
-    border-radius: var(--td-radius);
-    padding: 1rem 1.1rem;
-    margin-top: 0.85rem;
-    box-shadow: var(--td-shadow);
-}
-.retrieved-panel .rp-title {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--td-muted);
-    margin: 0 0 0.75rem 0;
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    padding: 0.7rem 0.8rem !important;
 }
 .retrieved-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.65rem;
+    gap: 0.55rem;
+    margin-top: 0.25rem;
 }
 @media (max-width: 900px) {
     .retrieved-grid { grid-template-columns: 1fr; }
@@ -758,39 +546,34 @@ div[data-testid="stVerticalBlockBorderWrapper"] textarea {
     background: var(--td-bg);
     border: 1px solid var(--td-border);
     border-radius: var(--td-radius-sm);
-    padding: 0.75rem 0.85rem;
+    padding: 0.65rem 0.75rem;
 }
 .evidence-card .ev-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
-    margin-bottom: 0.35rem;
+    gap: 0.4rem;
+    margin-bottom: 0.25rem;
 }
 .evidence-card .ev-id {
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: var(--td-muted);
 }
 .evidence-card .ev-score {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
     color: var(--td-primary);
-    background: #F0FDFA;
-    border: 1px solid #99F6E4;
-    border-radius: 999px;
-    padding: 0.12rem 0.45rem;
 }
 .evidence-card .ev-subject {
-    font-size: 0.86rem;
+    font-size: 0.82rem;
     font-weight: 650;
     color: var(--td-text);
-    margin: 0 0 0.25rem 0;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
+    margin: 0 0 0.15rem 0;
+    line-height: 1.3;
 }
 .evidence-card .ev-cat {
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     color: var(--td-muted);
     margin: 0;
 }
@@ -800,21 +583,13 @@ div[data-testid="stVerticalBlockBorderWrapper"] textarea {
 }
 
 /* —— Supporting detail —— */
-.support-note {
-    color: var(--td-muted);
-    font-size: 0.86rem;
-    line-height: 1.45;
-    margin: 0 0 0.65rem 0;
-    max-width: 42rem;
-}
-.support-note strong { color: var(--td-text); font-weight: 650; }
 div[data-testid="stTabs"] [data-baseweb="tab-list"] {
-    gap: 0.25rem;
+    gap: 0.2rem;
     background: var(--td-bg);
     border: 1px solid var(--td-border);
     border-radius: var(--td-radius-sm);
-    padding: 0.25rem;
-    margin-bottom: 0.65rem;
+    padding: 0.2rem;
+    margin-bottom: 0.55rem;
 }
 div[data-testid="stTabs"] button[data-baseweb="tab"] {
     border-radius: 8px !important;
@@ -830,22 +605,6 @@ div[data-testid="stDataFrame"] {
     border: 1px solid var(--td-border);
     border-radius: var(--td-radius);
     overflow: hidden;
-}
-.chart-muted {
-    background: var(--td-bg);
-    border: 1px solid var(--td-border);
-    border-radius: var(--td-radius-sm);
-    padding: 0.7rem 0.85rem;
-    color: var(--td-muted);
-    font-size: 0.84rem;
-    line-height: 1.45;
-    margin: 0 0 0.65rem 0;
-}
-.tab-sub {
-    color: var(--td-muted);
-    font-size: 0.82rem;
-    margin: 0 0 0.75rem 0;
-    line-height: 1.4;
 }
 </style>
 """
@@ -957,14 +716,13 @@ def render_hero(dry_run: bool | None = None) -> None:
         <div class="hero">
           <div class="hero-top">
             <div>
-              <p class="hero-eyebrow">Shared-inbox quality demo</p>
+              <p class="hero-eyebrow">Shared-inbox demo</p>
               <h1 class="hero-title">TrustDraft</h1>
             </div>
             {mode}
           </div>
           <p class="hero-subtitle">
-            Draft support replies from similar tickets — then prove the score
-            actually measures quality.
+            Retrieve · draft · prove the score discriminates.
           </p>
           <div class="process-row">
             <div class="process-pill"><span class="num">1</span>Retrieve</div>
@@ -972,26 +730,6 @@ def render_hero(dry_run: bool | None = None) -> None:
             <div class="process-pill"><span class="num">2</span>Draft</div>
             <span class="process-arrow">→</span>
             <div class="process-pill"><span class="num">3</span>Validate</div>
-          </div>
-          <div class="reviewer-guide">
-            <p class="rg-label">What to look at</p>
-            <div class="rg-grid">
-              <div class="rg-item">
-                <p class="n">01</p>
-                <p class="t">Validation gap</p>
-                <p class="d">Does accuracy fall when the reference is wrong?</p>
-              </div>
-              <div class="rg-item">
-                <p class="n">02</p>
-                <p class="t">Ticket review</p>
-                <p class="d">Compare the draft to the reply that was sent.</p>
-              </div>
-              <div class="rg-item">
-                <p class="n">03</p>
-                <p class="t">Mode</p>
-                <p class="d">Dry-run = placeholders. Live = Claude scores.</p>
-              </div>
-            </div>
           </div>
         </div>
         """,
@@ -1009,45 +747,31 @@ def render_validation_proof(validation: dict) -> None:
 
     if dry_run:
         card_class = "proof-card proof-dry"
-        status = (
-            '<span class="status-chip warn">'
-            "Dry-run · placeholder scores</span>"
-        )
+        status = '<span class="status-chip warn">Dry-run</span>'
         dry_banner = (
             '<div class="dry-run-inline">'
-            "Dry-run cannot prove discrimination — the judge returns a constant, "
-            "so the gap stays near zero. Switch to Live and re-run for a real test."
+            "Placeholder scores — gap ≈ 0. Switch to Live and re-run."
             "</div>"
         )
     elif meaningful:
         card_class = "proof-card proof-success"
-        status = (
-            '<span class="status-chip ok">'
-            "Live · metric discriminates</span>"
-        )
+        status = '<span class="status-chip ok">Discriminates</span>'
         dry_banner = ""
     else:
         card_class = "proof-card"
-        status = (
-            '<span class="status-chip neutral">'
-            "Live · gap is small</span>"
-        )
+        status = '<span class="status-chip neutral">Weak gap</span>'
         dry_banner = ""
 
-    interp_class = "interpretation interp-success" if meaningful else "interpretation"
     gap_sign = "+" if gap > 0 else ""
+    interp_class = "interpretation interp-success" if meaningful else "interpretation"
 
     st.markdown(
         f"""
         <div class="{card_class}">
           <div class="proof-header">
             <div>
-              <p class="proof-kicker">Core proof</p>
               <p class="proof-title">Does the score discriminate?</p>
-              <p class="proof-lead">
-                Same drafts, scored twice: once against the real reply, once against
-                a wrong one. Correct should win.
-              </p>
+              <p class="proof-lead">Same draft · correct vs. wrong reference.</p>
             </div>
             {status}
           </div>
@@ -1055,44 +779,32 @@ def render_validation_proof(validation: dict) -> None:
             <div class="compare-cell gap-cell">
               <p class="compare-label">Accuracy gap</p>
               <p class="compare-value">{gap_sign}{gap:.1f}</p>
-              <p class="compare-sub">Correct average − mismatched average</p>
             </div>
-            <div class="compare-cell">
-              <p class="compare-label">Correct references</p>
-              <p class="compare-value">{correct:.1f}</p>
-              <p class="compare-sub">Avg score vs. the true reply</p>
+            <div class="compare-row">
+              <div class="compare-cell">
+                <p class="compare-label">Correct</p>
+                <p class="compare-value">{correct:.1f}</p>
+              </div>
+              <div class="compare-cell">
+                <p class="compare-label">Mismatched</p>
+                <p class="compare-value">{mismatched:.1f}</p>
+              </div>
             </div>
-            <div class="compare-cell">
-              <p class="compare-label">Mismatched references</p>
-              <p class="compare-value">{mismatched:.1f}</p>
-              <p class="compare-sub">Avg score vs. a wrong reply</p>
-            </div>
-          </div>
-          <div class="proof-takeaway">
-            <span class="mark"></span>
-            <p>
-              <strong>Positive gap means the metric is discriminating</strong>
-              between correct and wrong references — not outputting a constant.
-            </p>
           </div>
           {dry_banner}
-        </div>
-        <div class="{interp_class}">
-          <div class="interp-label">Run notes</div>
-          <div>{interpretation}</div>
         </div>
         """,
         unsafe_allow_html=True,
     )
+    if interpretation:
+        with st.expander("Run notes", expanded=False):
+            st.markdown(
+                f'<div class="{interp_class}">{interpretation}</div>',
+                unsafe_allow_html=True,
+            )
 
 
 def render_ticket_review(df: pd.DataFrame, gen_by_id: dict) -> None:
-    st.markdown('<p class="story-step">02 · See a draft</p>', unsafe_allow_html=True)
-    section(
-        "Ticket review",
-        "Customer email · model draft · agent-sent reply.",
-    )
-
     id_to_label = {}
     for _, r in df.iterrows():
         subj = str(r.get("subject") or "").strip()
@@ -1116,134 +828,86 @@ def render_ticket_review(df: pd.DataFrame, gen_by_id: dict) -> None:
         f"""
         <div class="ticket-shell">
           <div class="ticket-head">
-            <div>
-              <p class="th-label">Selected ticket</p>
-              <p class="th-subject">{html.escape(str(incoming_subject))}</p>
-              <p class="th-meta">{html.escape(str(category))} · {html.escape(str(ticket_id))}</p>
-            </div>
+            <p class="th-subject">{html.escape(str(incoming_subject))}</p>
+            <p class="th-meta">{html.escape(str(category))} · {html.escape(str(ticket_id))}</p>
           </div>
-          <div class="score-strip">
-            <div class="score-chip">
-              <p class="slabel">Intent</p>
-              <p class="svalue">{int(row['intent_coverage'])}<span class="sunit"> / 5</span></p>
-            </div>
-            <div class="score-chip">
-              <p class="slabel">Tone</p>
-              <p class="svalue">{int(row['tone_fidelity'])}<span class="sunit"> / 5</span></p>
-            </div>
-            <div class="score-chip">
-              <p class="slabel">Correctness</p>
-              <p class="svalue">{int(row['correctness'])}<span class="sunit"> / 5</span></p>
-            </div>
-            <div class="score-chip">
-              <p class="slabel">Conciseness</p>
-              <p class="svalue">{int(row['conciseness'])}<span class="sunit"> / 5</span></p>
-            </div>
-            <div class="score-chip total">
-              <p class="slabel">Accuracy</p>
-              <p class="svalue">{row['accuracy_score']:.0f}</p>
-            </div>
+          <div class="score-row">
+            <p class="acc"><span>Accuracy</span>{row['accuracy_score']:.0f}</p>
+            <p class="dims">
+              Intent <b>{int(row['intent_coverage'])}</b>
+              · Tone <b>{int(row['tone_fidelity'])}</b>
+              · Correct <b>{int(row['correctness'])}</b>
+              · Concise <b>{int(row['conciseness'])}</b>
+              <span style="color:#94a3b8"> /5</span>
+            </p>
           </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    d1, d2, d3 = st.columns(3, gap="medium")
-    with d1:
+    with st.container(border=True):
+        st.markdown('<p class="panel-title">Customer</p>', unsafe_allow_html=True)
+        st.text_area(
+            "Customer email",
+            incoming_body or "(body not in generated.json)",
+            height=160,
+            disabled=True,
+            label_visibility="collapsed",
+        )
+
+    c_draft, c_ref = st.columns(2, gap="medium")
+    with c_draft:
         with st.container(border=True):
-            st.markdown(
-                """
-                <div class="mail-card-head">
-                  <div class="panel-title">Customer email</div>
-                  <span class="mail-badge">Inbound</span>
-                </div>
-                <div class="panel-meta">What the customer wrote</div>
-                """,
-                unsafe_allow_html=True,
-            )
-            st.markdown(
-                f'<p class="mail-subject"><strong>Subject</strong>'
-                f"{html.escape(str(incoming_subject))}</p>",
-                unsafe_allow_html=True,
-            )
-            st.text_area(
-                "Customer email",
-                incoming_body or "(body not in generated.json)",
-                height=300,
-                disabled=True,
-                label_visibility="collapsed",
-            )
-    with d2:
-        with st.container(border=True):
-            st.markdown(
-                """
-                <div class="mail-card-head">
-                  <div class="panel-title">Model draft</div>
-                  <span class="mail-badge gen">Suggested</span>
-                </div>
-                <div class="panel-meta">AI reply under evaluation</div>
-                """,
-                unsafe_allow_html=True,
-            )
+            st.markdown('<p class="panel-title">Draft</p>', unsafe_allow_html=True)
             st.text_area(
                 "Model draft",
                 row["generated_reply"],
-                height=340,
+                height=240,
                 disabled=True,
                 label_visibility="collapsed",
             )
-    with d3:
+    with c_ref:
         with st.container(border=True):
-            st.markdown(
-                """
-                <div class="mail-card-head">
-                  <div class="panel-title">Agent-sent reply</div>
-                  <span class="mail-badge ref">Ground truth</span>
-                </div>
-                <div class="panel-meta">What the agent actually sent</div>
-                """,
-                unsafe_allow_html=True,
-            )
+            st.markdown('<p class="panel-title">Sent</p>', unsafe_allow_html=True)
             st.text_area(
                 "Agent-sent reply",
                 row["reference_reply"],
-                height=340,
+                height=240,
                 disabled=True,
                 label_visibility="collapsed",
             )
 
     retrieved = gen.get("retrieved_examples") or []
     if retrieved:
-        cards = []
-        for i, ex in enumerate(retrieved, 1):
-            score = ex.get("score")
-            score_html = (
-                f'<span class="ev-score">sim {score:.3f}</span>'
-                if isinstance(score, (int, float))
-                else ""
+        n_ex = len(retrieved)
+        with st.expander(f"Retrieval · {n_ex}", expanded=False):
+            cards = []
+            for i, ex in enumerate(retrieved, 1):
+                score = ex.get("score")
+                score_html = (
+                    f'<span class="ev-score">{score:.2f}</span>'
+                    if isinstance(score, (int, float))
+                    else ""
+                )
+                cards.append(
+                    "<div class='evidence-card'>"
+                    "<div class='ev-top'>"
+                    f"<span class='ev-id'>#{i} · {html.escape(str(ex.get('id', '')))}</span>"
+                    f"{score_html}"
+                    "</div>"
+                    f"<p class='ev-subject'>{html.escape(str(ex.get('subject', '')))}</p>"
+                    f"<p class='ev-cat'>{html.escape(str(ex.get('category', '') or 'uncategorized'))}</p>"
+                    "</div>"
+                )
+            st.markdown(
+                "<div class='retrieved-grid'>" + "".join(cards) + "</div>",
+                unsafe_allow_html=True,
             )
-            cards.append(
-                "<div class='evidence-card'>"
-                "<div class='ev-top'>"
-                f"<span class='ev-id'>#{i} · {html.escape(str(ex.get('id', '')))}</span>"
-                f"{score_html}"
-                "</div>"
-                f"<p class='ev-subject'>{html.escape(str(ex.get('subject', '')))}</p>"
-                f"<p class='ev-cat'>{html.escape(str(ex.get('category', '') or 'uncategorized'))}</p>"
-                "</div>"
-            )
-        st.markdown(
-            "<div class='retrieved-panel'>"
-            "<p class='rp-title'>Retrieval evidence</p>"
-            "<div class='retrieved-grid'>"
-            + "".join(cards)
-            + "</div></div>",
-            unsafe_allow_html=True,
-        )
     elif gen.get("retrieved_ids"):
         ids = ", ".join(str(i) for i in gen["retrieved_ids"])
-        st.caption(f"Retrieved example ids: {ids}")
+        with st.expander("Retrieval", expanded=False):
+            st.caption(ids)
 
 
 
@@ -1262,31 +926,26 @@ def main() -> None:
               <div class="logo">TD</div>
               <div class="copy">
                 <p class="name">TrustDraft</p>
-                <p class="tag">Suggested-reply evaluation</p>
+                <p class="tag">Reply quality</p>
               </div>
             </div>
-            <p class="sidebar-panel-label">Controls</p>
-            <p class="sidebar-help">Rebuild the corpus, draft replies, and score them.</p>
+            <p class="sidebar-panel-label">Run</p>
             """,
             unsafe_allow_html=True,
         )
-        n = st.slider("Dataset size", min_value=5, max_value=80, value=40, step=5)
-        dry_run = st.checkbox("Dry-run (no API calls)", value=True)
+        n = st.slider("Tickets", min_value=5, max_value=80, value=40, step=5)
+        dry_run = st.checkbox("Dry-run", value=True)
         if dry_run:
             st.markdown(
-                '<p class="sidebar-mode-note dry">'
-                "Dry-run uses fixtures and a placeholder judge. Gap ≈ 0."
-                "</p>",
+                '<p class="sidebar-mode-note dry">Fixtures · gap ≈ 0</p>',
                 unsafe_allow_html=True,
             )
         else:
             st.markdown(
-                '<p class="sidebar-mode-note live">'
-                "Live mode calls Claude. Requires ANTHROPIC_API_KEY."
-                "</p>",
+                '<p class="sidebar-mode-note live">Claude · needs API key</p>',
                 unsafe_allow_html=True,
             )
-        run_clicked = st.button("Run full pipeline", type="primary", width="stretch")
+        run_clicked = st.button("Run pipeline", type="primary", width="stretch")
 
         if run_clicked:
             with st.spinner("Running pipeline…"):
@@ -1308,130 +967,83 @@ def main() -> None:
     render_hero(dry_run=dry_flag)
 
     if not evaluations or not validation:
-        st.info("No results yet. Run the pipeline from the sidebar (dry-run is fine to start).")
+        st.info("No results yet. Run from the sidebar.")
         return
 
     gen_by_id = {g["id"]: g for g in generated}
     df = pd.DataFrame(evaluations)
 
-    # 1. Validation first — hiring-manager insight in the first viewport
-    st.markdown('<p class="story-step">01 · Believe the score?</p>', unsafe_allow_html=True)
-    section(
-        "Validation proof",
-        "Scan the gap first. That is the product claim.",
-    )
+    section("1 · Validation")
     render_validation_proof(validation)
 
-    # 2. Ticket review
+    section("2 · Ticket")
     render_ticket_review(df, gen_by_id)
 
-    # 3. Supporting detail — accessible, not dominant
     is_dry = bool(validation.get("dry_run"))
-    st.markdown('<p class="story-step">03 · Supporting detail</p>', unsafe_allow_html=True)
-    section("Supporting detail")
-    st.markdown(
-        '<p class="support-note">'
-        "<strong>Optional.</strong> Use this for category patterns and a full ticket table. "
-        "The proof and ticket review above are the hiring-manager path."
-        "</p>",
-        unsafe_allow_html=True,
-    )
+    support_label = "More · table & charts" + (" · dry-run" if is_dry else "")
+    with st.expander(support_label, expanded=False):
+        tab_results, tab_charts = st.tabs(["Table", "Charts"])
 
-    tab_results, tab_charts = st.tabs(["Results table", "Charts"])
-
-    with tab_results:
-        st.markdown(
-            '<p class="tab-sub">Filter evaluated tickets. Compact view — open a row above for the full scorecard.</p>',
-            unsafe_allow_html=True,
-        )
-        categories = sorted({c for c in df["category"].dropna().unique()})
-        f1, f2 = st.columns([2, 1], gap="small")
-        with f1:
-            selected_cats = st.multiselect(
-                "Category",
-                categories,
-                default=categories,
-                label_visibility="collapsed",
-                placeholder="Filter by category",
-            )
-        with f2:
-            min_acc = st.slider("Min accuracy", 0, 100, 0)
-
-        filtered = df.copy()
-        if selected_cats:
-            filtered = filtered[filtered["category"].isin(selected_cats)]
-        filtered = filtered[filtered["accuracy_score"] >= min_acc]
-
-        show_cols = [
-            c
-            for c in [
-                "id",
-                "category",
-                "subject",
-                "accuracy_score",
-                "intent_coverage",
-                "tone_fidelity",
-                "correctness",
-                "conciseness",
-            ]
-            if c in filtered.columns
-        ]
-        display = filtered[show_cols].rename(
-            columns={
-                "accuracy_score": "accuracy",
-                "intent_coverage": "intent",
-                "tone_fidelity": "tone",
-            }
-        )
-        st.dataframe(
-            display,
-            width="stretch",
-            hide_index=True,
-            height=min(260, 42 + 35 * max(len(display), 1)),
-        )
-        st.caption(f"{len(display)} ticket(s) shown")
-
-    with tab_charts:
-        if is_dry:
-            st.markdown(
-                '<div class="chart-muted">'
-                "<strong>Dry-run:</strong> judge scores are constant, so category and "
-                "distribution charts carry little signal. Expand only if you want to "
-                "confirm the wiring."
-                "</div>",
-                unsafe_allow_html=True,
-            )
-            with st.expander("Show charts anyway", expanded=False):
-                st.markdown(
-                    '<p class="tab-sub">Mean accuracy by category and score bands.</p>',
-                    unsafe_allow_html=True,
+        with tab_results:
+            categories = sorted({c for c in df["category"].dropna().unique()})
+            f1, f2 = st.columns([2, 1], gap="small")
+            with f1:
+                selected_cats = st.multiselect(
+                    "Category",
+                    categories,
+                    default=categories,
+                    label_visibility="collapsed",
+                    placeholder="Category",
                 )
-                c1, c2 = st.columns(2, gap="medium")
-                with c1:
-                    st.markdown("**By category**")
-                    if "category" in df.columns and df["category"].notna().any():
-                        category_chart(df)
-                    else:
-                        st.write("No category data.")
-                with c2:
-                    st.markdown("**Score bands**")
-                    distribution_chart(df)
-        else:
-            st.markdown(
-                '<p class="tab-sub">Secondary patterns after a live run — not the primary proof.</p>',
-                unsafe_allow_html=True,
+            with f2:
+                min_acc = st.slider("Min accuracy", 0, 100, 0)
+
+            filtered = df.copy()
+            if selected_cats:
+                filtered = filtered[filtered["category"].isin(selected_cats)]
+            filtered = filtered[filtered["accuracy_score"] >= min_acc]
+
+            show_cols = [
+                c
+                for c in [
+                    "id",
+                    "category",
+                    "subject",
+                    "accuracy_score",
+                    "intent_coverage",
+                    "tone_fidelity",
+                    "correctness",
+                    "conciseness",
+                ]
+                if c in filtered.columns
+            ]
+            display = filtered[show_cols].rename(
+                columns={
+                    "accuracy_score": "accuracy",
+                    "intent_coverage": "intent",
+                    "tone_fidelity": "tone",
+                }
             )
+            st.dataframe(
+                display,
+                width="stretch",
+                hide_index=True,
+                height=min(200, 42 + 35 * max(len(display), 1)),
+            )
+            st.caption(f"{len(display)} shown")
+
+        with tab_charts:
+            if is_dry:
+                st.caption("Dry-run scores are constant.")
             c1, c2 = st.columns(2, gap="medium")
             with c1:
-                st.markdown("**By category**")
-                st.caption("Mean LLM-judge accuracy (0–100).")
+                st.caption("By category")
                 if "category" in df.columns and df["category"].notna().any():
                     category_chart(df)
                 else:
                     st.write("No category data.")
             with c2:
-                st.markdown("**Score bands**")
-                st.caption("How tickets fall across accuracy ranges.")
+                st.caption("Score bands")
                 distribution_chart(df)
 
 

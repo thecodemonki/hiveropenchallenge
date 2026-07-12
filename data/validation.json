@@ -1,24 +1,44 @@
 {
-  "n": 1,
-  "dry_run": true,
-  "used_fallback_wrong_reference": true,
-  "avg_accuracy_correct": 60.0,
-  "avg_accuracy_mismatched": 60.0,
-  "accuracy_gap": 0.0,
-  "avg_rouge_l_correct": 0.0821917808219178,
-  "avg_rouge_l_mismatched": 0.08888888888888889,
+  "n": 3,
+  "dry_run": false,
+  "used_fallback_wrong_reference": false,
+  "avg_accuracy_correct": 90.0,
+  "avg_accuracy_mismatched": 36.666666666666664,
+  "accuracy_gap": 53.333333333333336,
+  "avg_rouge_l_correct": 0.4432154662350942,
+  "avg_rouge_l_mismatched": 0.26289716672926033,
   "note": "accuracy_score (LLM judge, 0\u2013100) is the primary metric. rouge_l_f1 is a coarse lexical secondary signal only.",
-  "interpretation": "Dry-run used a constant placeholder judge score for every pair, so the correct-vs-mismatched gap is ~0 by construction. This does not validate the metric \u2014 re-run without --dry-run (and with \u22652 test emails) to check that the LLM judge discriminates.",
+  "interpretation": "Average accuracy on correct pairs exceeds mismatched pairs by 53.3 points. That gap indicates the judge tracks reply\u2013reference fit rather than emitting a plausible constant score.",
   "mismatched_pairs": [
     {
       "id": "test_0",
-      "mismatched_reference_id": "fallback_unrelated",
-      "accuracy_score": 60.0,
-      "rouge_l_f1": 0.08888888888888889,
-      "intent_coverage": 3,
-      "tone_fidelity": 3,
-      "correctness": 3,
-      "conciseness": 3
+      "mismatched_reference_id": "test_1",
+      "accuracy_score": 20.0,
+      "rouge_l_f1": 0.19796954314720813,
+      "intent_coverage": 1,
+      "tone_fidelity": 1,
+      "correctness": 1,
+      "conciseness": 1
+    },
+    {
+      "id": "test_1",
+      "mismatched_reference_id": "test_2",
+      "accuracy_score": 20.0,
+      "rouge_l_f1": 0.23750000000000002,
+      "intent_coverage": 1,
+      "tone_fidelity": 1,
+      "correctness": 1,
+      "conciseness": 1
+    },
+    {
+      "id": "test_2",
+      "mismatched_reference_id": "test_0",
+      "accuracy_score": 70.0,
+      "rouge_l_f1": 0.3532219570405728,
+      "intent_coverage": 5,
+      "tone_fidelity": 4,
+      "correctness": 1,
+      "conciseness": 4
     }
   ]
 }

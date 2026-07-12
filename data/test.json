@@ -1,11 +1,29 @@
 [
   {
-    "customer_name": "Devon Blake",
-    "subject": "Can we get Slack alerts for new tickets?",
-    "body": "Hey,\n\nLove the product so far. One ask: can we push new ticket notifications into a Slack channel? We miss emails when we're heads-down. Is this on the roadmap or possible via API?\n\nDevon",
-    "reply": "Hi Devon,\n\nGreat timing \u2014 Slack ticket alerts are in beta. I can enable it on your workspace today: Settings \u2192 Integrations \u2192 Slack, then pick a channel. If you'd rather use the API, here's the webhook docs: docs.example.com/slack. Want me to turn on beta access for your account?\n\n\u2014 Riley",
-    "category": "feature_request",
+    "customer_name": "Marcus Chen",
+    "subject": "Need to cancel our account - too many issues",
+    "body": "Hi there,\n\nI'm reaching out to cancel our Hiver Desk account effective immediately. We've been customers for about 8 months now, but we've experienced too many frustrating issues over the past two months. The mobile app crashes constantly, email sync has been unreliable, and our team has missed several customer inquiries because tickets just didn't come through. We've submitted support tickets about these problems but haven't seen any real improvement.\n\nWe're moving to a competitor next week and need to export all our historical tickets and customer data before we lose access. Can you please process the cancellation and let me know how to get our data out?\n\nThanks,\nMarcus Chen\nOperations Manager, BrightPath Solutions",
+    "reply": "Hi Marcus,\n\nThank you for reaching out, and I'm truly sorry to hear about the issues you've experienced with Hiver Desk. Missing customer inquiries and dealing with sync problems is incredibly frustrating, and I completely understand why you've made the decision to move on.\n\nI've processed your cancellation request, and your account will remain active until the end of your current billing cycle on April 30th. You won't be charged again. To export all your historical data, go to Settings > Data Export > Full Account Backup, and you'll receive a downloadable ZIP file with all tickets, contacts, and attachments within 2-4 hours.\n\nI want to acknowledge that we clearly fell short of your expectations, especially with the mobile app stability and email sync reliability. If you're open to it, I'd like to pass your specific feedback to our product team\u2014your experience with missed tickets is something they need to hear directly.\n\nPlease let me know if you run into any issues with the data export, and I'll personally make sure you get everything you need for a smooth transition.\n\nBest regards,\nSarah Mitchell\nCustomer Success Team, Hiver Desk",
+    "category": "cancellation_churn",
     "customer_tier": "standard",
-    "sentiment": "positive"
+    "sentiment": "frustrated"
+  },
+  {
+    "customer_name": "Marcus Chen",
+    "subject": "Urgent: Duplicate charge on invoice #HD-8842 - need immediate refund",
+    "body": "Hi Hiver Desk support,\n\nI just noticed we were charged twice for our Standard plan subscription this month. Our invoice #HD-8842 shows two separate charges of $149 each on March 1st, when we should only have been billed once. This has caused an overdraft in our company account and I need this resolved immediately.\n\nI've attached a screenshot of both transactions from our bank statement. Can you please issue a refund for the duplicate charge as soon as possible? Our accounting team is waiting on this to close out the month.\n\nThanks,\nMarcus Chen\nOperations Manager\nBrightwave Solutions",
+    "reply": "Hi Marcus,\n\nI sincerely apologize for the duplicate charge on your account. I've reviewed invoice #HD-8842 and can confirm that you were indeed charged twice in error due to a payment processing glitch on our end on March 1st.\n\nI've already initiated a full refund of $149 for the duplicate transaction. You should see this credit back in your account within 3-5 business days, though it often processes faster. I'm also applying a $25 account credit to your Hiver Desk account as an apology for the inconvenience and any overdraft fees this may have caused.\n\nYou'll receive a refund confirmation email within the next hour with the transaction reference number that you can share with your accounting team. If you don't see the funds returned within 5 business days, please reply to this email and I'll escalate immediately with our payment processor.\n\nAgain, I'm very sorry for the trouble this caused.\n\nBest regards,\nSarah Mitchell\nHiver Desk Support Team",
+    "category": "billing_refund",
+    "customer_tier": "standard",
+    "sentiment": "urgent"
+  },
+  {
+    "customer_name": "Marcus Webb",
+    "subject": "Account cancellation request",
+    "body": "Hi there,\n\nI wanted to reach out regarding our Hiver Desk subscription. We've been using the platform for about 8 months now, but we've recently decided to consolidate our tools and move to an all-in-one solution that includes helpdesk functionality. We'd like to cancel our account at the end of this billing cycle if possible.\n\nCan you let me know what the process looks like and if there's anything we need to do on our end to export our ticket history before the account closes?\n\nThanks,\nMarcus Webb\nIT Manager, Cascade Solutions",
+    "reply": "Hi Marcus,\n\nThank you for reaching out, and I completely understand the need to consolidate your tech stack.\n\nI've gone ahead and scheduled your account for cancellation at the end of your current billing cycle on April 15th. You won't be charged again after that date, and your team will have full access to Hiver Desk until then.\n\nRegarding your data export, you can download your complete ticket history anytime before April 15th by going to Settings > Data Export > Generate Full Archive. The export typically takes 10-15 minutes depending on ticket volume, and you'll receive a download link via email. I'd recommend doing this within the next week to give yourself plenty of time.\n\nIf you run into any issues with the export or have questions before your account closes, just reply here and I'll be happy to help.\n\nBest of luck with your new setup,\nSarah Chen\nCustomer Success Team",
+    "category": "cancellation_churn",
+    "customer_tier": "standard",
+    "sentiment": "neutral"
   }
 ]
