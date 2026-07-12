@@ -1,0 +1,24 @@
+{
+  "n": 1,
+  "dry_run": true,
+  "used_fallback_wrong_reference": true,
+  "avg_accuracy_correct": 60.0,
+  "avg_accuracy_mismatched": 60.0,
+  "accuracy_gap": 0.0,
+  "avg_rouge_l_correct": 0.0821917808219178,
+  "avg_rouge_l_mismatched": 0.08888888888888889,
+  "note": "accuracy_score (LLM judge, 0\u2013100) is the primary metric. rouge_l_f1 is a coarse lexical secondary signal only.",
+  "interpretation": "Dry-run used a constant placeholder judge score for every pair, so the correct-vs-mismatched gap is ~0 by construction. This does not validate the metric \u2014 re-run without --dry-run (and with \u22652 test emails) to check that the LLM judge discriminates.",
+  "mismatched_pairs": [
+    {
+      "id": "test_0",
+      "mismatched_reference_id": "fallback_unrelated",
+      "accuracy_score": 60.0,
+      "rouge_l_f1": 0.08888888888888889,
+      "intent_coverage": 3,
+      "tone_fidelity": 3,
+      "correctness": 3,
+      "conciseness": 3
+    }
+  ]
+}

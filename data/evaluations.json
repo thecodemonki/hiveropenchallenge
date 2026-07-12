@@ -1,0 +1,16 @@
+[
+  {
+    "id": "test_0",
+    "category": "feature_request",
+    "subject": "Can we get Slack alerts for new tickets?",
+    "reference_reply": "Hi Devon,\n\nGreat timing \u2014 Slack ticket alerts are in beta. I can enable it on your workspace today: Settings \u2192 Integrations \u2192 Slack, then pick a channel. If you'd rather use the API, here's the webhook docs: docs.example.com/slack. Want me to turn on beta access for your account?\n\n\u2014 Riley",
+    "generated_reply": "[dry-run] Suggested reply for: Can we get Slack alerts for new tickets?\nRetrieved examples: train_2, train_0, train_1",
+    "intent_coverage": 3,
+    "tone_fidelity": 3,
+    "correctness": 3,
+    "conciseness": 3,
+    "accuracy_score": 60.0,
+    "rouge_l_f1": 0.0821917808219178,
+    "pair_type": "correct"
+  }
+]
